@@ -1,0 +1,9 @@
+kind: template
+load: deploy_template.yaml
+data:
+  project_name: react-seed
+  staging_host: 172.16.1.117
+  health_check_url: http://localhost:1234/react-seed
+  deploy_port: 1234
+  test_deploy_port: 1235
+  internal_container_port: 80
