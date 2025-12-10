@@ -1,7 +1,8 @@
 export default {
   appTitle:   "Registro de la Propiedad Inmueble",
   baseUrl:  `/rpi-client` ,
-  serverUrl: "http://localhost:9100",
+  serverUrl: "https://rpi-server-eight.vercel.app/"
+  //"http://localhost:9100",
 };
 
 export const PAGE_SIZES = [30, 40, 50];
