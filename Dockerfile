@@ -1,36 +1,35 @@
-# syntax=docker/dockerfile:1 
-ARG NODE_VERSION=23.11.0 
-FROM node:${NODE_VERSION}-alpine AS build
-
-# Use development node environment by default. 
-ENV NODE_ENV development 
+#etapa de compilacion
+ARG NODE_VERSION=23.11.0
+FROM node:${NODE_VERSION}-alpine AS build-stage
 
 # Declaro las variables
-ENV DIR /rpi-client
+ENV DIR=/rpi-client
 
 # Creo el directorio en el contenedor
 WORKDIR ${DIR}
 
 # Copy package.json and package-lock.json to the working directory 
-COPY package.json package-lock.json ./ 
+COPY package*.json ./
 
 # Install dependencies 
 RUN npm install 
 
-# Copy the rest of the source files into the image 
+
+# Copiar el resto del proyecto y construirlo
 COPY . . 
+RUN npm run build
 
-# Change ownership of the /${DIR} directory to the node user 
-RUN chown -R node:node ${DIR}
 
-# Switch to the node user 
-USER node 
+# etapa de producción
+FROM nginx:1.17.10-alpine AS production-stage
 
-# Ensure node_modules/.bin is in the PATH
-ENV PATH ${DIR}/node_modules/.bin:$PATH 
+COPY --from=build-stage /rpi-client/dist /usr/share/nginx/html
+
+EXPOSE 9001
 
 # Expose the port that the application listens on.
-EXPOSE 5173
+#EXPOSE 9001
 
 # Run the application.
-CMD ["npm", "run", "dev"]
+CMD ["nginx", "-g", "daemon off;"]
+

@@ -17,7 +17,7 @@ declare interface Props {
   onClose: () => void;
 }
 
-const getColumns = (afterCrud: () => void, visible: boolean, idInmueble: number) => {
+const getColumns = (afterCrud: () => void, visible: boolean) => {
   const columns: ColumnsType<any> = [
     {
       key: "nombres",
@@ -61,7 +61,7 @@ export default function PersonasTitulares({
   onClose,
 }: Readonly<Props>) { 
 
-  const [getPersonasTitulares, { loading, data, error }] = useQuery(
+  const [getPersonasTitulares, { loading, data }] = useQuery(
     (filtros: FiltrosInmueble) => request(`/api/inmueble/titulares`, filtros)
   );
 
@@ -70,11 +70,10 @@ export default function PersonasTitulares({
   }, [idInmueble]);
 
   const handleBuscarTitulares = async () => {
-    console.log("🚀 ~ handleBuscarTitulares ~ idInmueble:", idInmueble); 
     if (idInmueble) getPersonasTitulares({ idInmueble: idInmueble });
   };
   const columns = useMemo(
-    () => getColumns(handleBuscarTitulares, visible!, idInmueble),
+    () => getColumns(handleBuscarTitulares, visible!),
     []
   );
 

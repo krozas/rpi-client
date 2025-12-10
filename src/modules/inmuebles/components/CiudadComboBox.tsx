@@ -4,7 +4,7 @@ import { Select, SelectProps } from "antd";
 import { DefaultOptionType } from "antd/es/select";
 
 export default function CiudadComboBox(props: Readonly<SelectProps>) {
-  const { data, error } = useQuery({
+  const { data } = useQuery({
     queryKey: ["ciudades"],
     queryFn: () => request("/api/configuracion/ciudades"),
   });

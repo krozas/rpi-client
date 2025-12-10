@@ -44,7 +44,7 @@ const getColumns = (afterCrud: () => void): ColumnsType<DepartamentoDTO> => {
 };
 
 export default function DepartamentosView() {
-  const [getDepartamentos, { loading, data, error }] = useQuery(() =>
+  const [getDepartamentos, { data }] = useQuery(() =>
     request(`/api/configuracion/departamentos`)
   );
 

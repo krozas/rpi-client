@@ -4,7 +4,7 @@ import { useQuery } from "@hooks/useQuery";
 import { Table } from "antd/lib";
 import FiltroBuscarPersonas from "./FiltroBuscarPersonas";
 import { request } from "@utils/axiosInstance";
-import { Button, Modal } from "antd";
+import { Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import EditarPersona from "./acciones/EditarPersona";
 import AccionesPersona from "./acciones/AccionesPersona";
@@ -65,7 +65,7 @@ const getColumns = (
 export default function PersonasView() {
   const [filtros, setFiltros] = useState<FiltrosPersona>();
  
-  const [getPersonas, { loading, data, error }] = useQuery(() => request(`/api/persona`, filtros));
+  const [getPersonas, { loading, data }] = useQuery(() => request(`/api/persona`, filtros));
 
   useEffect(() => {
     if (filtros) {

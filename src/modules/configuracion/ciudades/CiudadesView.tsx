@@ -44,7 +44,7 @@ const getColumns = (afterCrud: () => void): ColumnsType<CiudadDTO> => {
 };
 
 export default function CiudadesView() {
-  const [getCiudades, { loading, data, error }] = useQuery(() =>
+  const [getCiudades, {data }] = useQuery(() =>
     request(`/api/configuracion/ciudades`)
   );
 

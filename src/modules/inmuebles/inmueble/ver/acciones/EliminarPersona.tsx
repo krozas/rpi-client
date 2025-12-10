@@ -1,4 +1,4 @@
-import { CheckOutlined, DeleteOutlined } from "@ant-design/icons";
+import { DeleteOutlined } from "@ant-design/icons";
 import { useQuery } from "@hooks/useQuery";
 import { request } from "@utils/axiosInstance";
 import { message, Modal } from "antd";

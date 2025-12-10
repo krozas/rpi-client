@@ -8,7 +8,6 @@ import {
 import { ConfigProvider } from "antd";
 import esES from "antd/locale/es_ES";
 import React from "react";
-import config from "@config/config";
 /*
   NOTA: por default todos los forms son verticales por la clase 'container-layout'
   para hacerlo horizontal se debe agregar la clase '!flexrow' en el form correspondiente

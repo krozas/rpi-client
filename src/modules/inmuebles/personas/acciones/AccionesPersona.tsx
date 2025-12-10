@@ -1,6 +1,5 @@
 import { Button, Dropdown, MenuProps } from "antd";
 import { EditOutlined, EyeOutlined, MoreOutlined } from "@ant-design/icons";  
-import EditarPersona from "./EditarPersona";
 import ButtonDrawer from "@components/button/ButtonDrawer";
 import InmueblePersonas from "./InmueblePersonas";
 import PersonaForm from "./EditarPersona";
