@@ -12,9 +12,9 @@ export default defineConfig(function (_a) {
     return {
         plugins: [react(), visualizer()],
         server: {
-            port: parseInt(env.APP_PORT),
+            port: Number.parseInt("9001"),  
         },
-        base: env.BASE_URL ? "/".concat(env.BASE_URL) : "/",
+        base:  "/".concat("rpi-client"),
         resolve: {
             alias: {
                 "@": root,

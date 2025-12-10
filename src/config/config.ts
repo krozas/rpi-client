@@ -1,14 +1,7 @@
-const {
-  VITE_APP_TITLE,
-  VITE_APP_BASE_URL,
-  VITE_SERVER_URL
-} = import.meta.env;
-
-
 export default {
-  appTitle: VITE_APP_TITLE ?? "Nueva Aplicación",
-  baseUrl: VITE_APP_BASE_URL ? `/${VITE_APP_BASE_URL}` : "/",
-  serverUrl: VITE_SERVER_URL,
+  appTitle:   "Registro de la Propiedad Inmueble",
+  baseUrl:  `/rpi-client` ,
+  serverUrl: "http://localhost:9100",
 };
 
 export const PAGE_SIZES = [30, 40, 50];

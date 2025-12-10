@@ -14,9 +14,9 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [react(), visualizer()],
     server: {
-      port: parseInt(env.APP_PORT),
+      port: parseInt("9001"),
     },
-    base: env.BASE_URL ? `/${env.BASE_URL}` : "/",
+    base:   `/rpi-client`,
     resolve: {
       alias: {
         "@": root,
