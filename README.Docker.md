@@ -1,22 +1,12 @@
-### Building and running your application
+### Construyendo y ejecutando la aplicación
 
-When you're ready, start your application by running:
+Ejecutar la aplicación en modo desarrollo:
 `docker compose up --build`.
 
-Your application will be available at http://localhost:9001.
+La aplicación se ejecutará en http://localhost:9001.
 
-### Deploying your application to the cloud
+### Deployar la application en el cloud
 
-First, build your image, e.g.: `docker build -t myapp .`.
-If your cloud uses a different CPU architecture than your development
-machine (e.g., you are on a Mac M1 and your cloud provider is amd64),
-you'll want to build the image for that platform, e.g.:
-`docker build --platform=linux/amd64 -t myapp .`.
+Primero, crea la imagen, por ejemplo: `docker build -t rpi-client .`. 
 
-Then, push it to your registry, e.g. `docker push myregistry.com/myapp`.
-
-Consult Docker's [getting started](https://docs.docker.com/go/get-started-sharing/)
-docs for more detail on building and pushing.
-
-### References
-* [Docker's Node.js guide](https://docs.docker.com/language/nodejs/)
+La aplicacion tambien ha sido compartida en https://hub.docker.com/repository/docker/krozas/dgi-rpi
